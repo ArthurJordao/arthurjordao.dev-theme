@@ -38,7 +38,7 @@
     {{- if (and $index)}}, {{end }}
     {
       "@type": "ListItem",
-      "position": {{ add 1 $index  }},
+      "position": {{ add 1 $index }},
       "name": {{ $bc_pg.Name | jsonify }},
       "item": {{ $bc_pg.Permalink | jsonify }}
     }
@@ -46,10 +46,10 @@
 
   {{- end }}
   {{- /*  self-page addition  */ -}}
-  {{- if (ge (len $bc_list) 2) }}, {{end }}
+  {{- if (gt (len $bc_list) 0) }}, {{end }}
     {
       "@type": "ListItem",
-      "position": {{len $bc_list}},
+      "position": {{ add (len $bc_list) 1 }},
       "name": {{ .Name | jsonify }},
       "item": {{ .Permalink | jsonify }}
     }
